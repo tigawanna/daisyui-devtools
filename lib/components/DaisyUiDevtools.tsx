@@ -11,6 +11,7 @@ interface DaisyUiDevtoolsProps {
 position?:"start"|"end";
 drawerID?:string;
 drawerClassname?:string;
+togglePosition?:"top-left"|"top-right"|"bottom-left"|"bottom-right"|"top"|"bottom";
 toggleClassname?:string;
 iconClassname?:string;
 }
@@ -18,19 +19,19 @@ iconClassname?:string;
 export function DaisyUiDevtools({
   drawerID = "daisyui-devtools-drawer",
   position="start",
+  togglePosition="bottom",
   toggleClassname="",
   drawerClassname="",
   iconClassname="",
 }: DaisyUiDevtoolsProps) {
-
-  const {searchParams,updateLockedTheme,updateTheme,updateWholeTheme,} = useDaisyUITheme() 
-//   if(process.env.NODE_ENV !== "development" && onlyShowInDev) {
-//     return
-//  }
- const drawerPositionStyles =
-   position === "end"
-     ? "drawer drawer-end sticky  z-20"
-     : "drawer sticky  z-20";
+  const { searchParams, updateLockedTheme, updateTheme, updateWholeTheme } = useDaisyUITheme();
+  //   if(process.env.NODE_ENV !== "development" && onlyShowInDev) {
+  //     return
+  //  }
+  // use CVA here : https://cva.style/docs/getting-started/variants
+  const togglePositionStyles = togglePosition === "top" ? "top-0" : "bottom-0";
+  const drawerPositionStyles =
+    position === "end" ? "drawer drawer-end sticky  z-20" : "drawer sticky  z-20";
   return (
     <>
       <label
