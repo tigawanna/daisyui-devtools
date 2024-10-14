@@ -1,45 +1,66 @@
-import React from "react";
 import DaisyUIThemeEditor from "./DaisyUIThemeEditor";
 import { twMerge } from "tailwind-merge";
 import { useDaisyUITheme } from "./utils/use-search-params-theme";
 import { ExportThemeDaisyUiDrawer, ImportThemeDaisyUiDrawer } from "./ThemeDrawers";
 import { getDaisyUiInlineCSSVariables } from "./utils/daisyui-css-variables-helpers";
-
-
-
+import { useState } from "react";
+import { X } from "lucide-react";
+import { cva} from "class-variance-authority";
+import {cn} from "./utils/tailwind-utils"
 interface DaisyUiDevtoolsProps {
-position?:"start"|"end";
-drawerID?:string;
-drawerClassname?:string;
-togglePosition?:"top-left"|"top-right"|"bottom-left"|"bottom-right"|"top"|"bottom";
-toggleClassname?:string;
-iconClassname?:string;
+  position?: "start" | "end";
+  drawerID?: string;
+  drawerClassname?: string;
+  togglePosition?: "default"|"top-left" | "top-right" | "bottom-left" | "bottom-right" | "top" | "bottom";
+  toggleClassname?: string;
+  iconClassname?: string;
 }
 
 export function DaisyUiDevtools({
   drawerID = "daisyui-devtools-drawer",
-  position="start",
-  togglePosition="bottom",
-  toggleClassname="",
-  drawerClassname="",
-  iconClassname="",
+  position = "start",
+  togglePosition = "default",
+  toggleClassname = "",
+  drawerClassname = "",
+  iconClassname = "",
 }: DaisyUiDevtoolsProps) {
   const { searchParams, updateLockedTheme, updateTheme, updateWholeTheme } = useDaisyUITheme();
-  //   if(process.env.NODE_ENV !== "development" && onlyShowInDev) {
-  //     return
-  //  }
-  // use CVA here : https://cva.style/docs/getting-started/variants
-  const togglePositionStyles = togglePosition === "top" ? "top-0" : "bottom-0";
+  const [exportDrawerOpen, setExportDrawerOpen] = useState(false);
+  const [importDrawerOpen, setImportDrawerOpen] = useState(false);
+
+  const togglePositionStylesVariants = cva(
+    "btn drawer-button fixed  z-50 flex gap-2 rounded-full text-primary",
+    {
+      variants: {
+        variant: {
+          default: "right-[5%] top-[10%]",
+          top: "right-[5%] top-[10%]",
+          bottom: "right-[5%] bottom-[10%]",
+          "top-left": "left-[5%] top-[10%]",
+          "top-right": "right-[5%] top-[10%]",
+          "bottom-left": "left-[5%] bottom-[10%]",
+          "bottom-right": "right-[5%] bottom-[10%]",
+          end: "right-[5%] top-[10%]",
+        },
+      },
+      defaultVariants: {
+        variant: "default",
+      },
+    }
+  );
   const drawerPositionStyles =
     position === "end" ? "drawer drawer-end sticky  z-20" : "drawer sticky  z-20";
+
+
   return (
     <>
       <label
         htmlFor="daisyui-devtools-drawer"
-        className={twMerge(
-          "btn drawer-button fixed right-[5%] top-[10%] z-50 flex gap-2 rounded-full text-primary",
-          toggleClassname
-        )}>
+        // className={twMerge(
+        //   "btn drawer-button fixed right-[5%] top-[10%] z-50 flex gap-2 rounded-full text-primary",
+        //   toggleClassname
+        // )}
+        className={cn(togglePositionStylesVariants({ variant: togglePosition }), toggleClassname)}>
         <svg
           className={twMerge("h-8 w-8 fill-primary text-primary hover:fill-accent", iconClassname)}
           viewBox="0 0 16.00 16.00"
@@ -69,12 +90,13 @@ export function DaisyUiDevtools({
               htmlFor={drawerID}
               aria-label="close sidebar"
               className="drawer-overlay sticky top-4">
-              🗙
+              <X className="size-8" />
             </label>
             {/* Sidebar content here */}
             <div className="flex flex-col gap-4 p-4">
               <div className="flex items-center justify-center gap-2">
                 <label
+                  onClick={() => setImportDrawerOpen((prev) => !prev)}
                   htmlFor="import-theme-drawer"
                   className="btn drawer-button btn-sm flex gap-2">
                   import
@@ -90,6 +112,7 @@ export function DaisyUiDevtools({
                 </label>
 
                 <label
+                  onClick={() => setExportDrawerOpen((prev) => !prev)}
                   htmlFor="export-theme-drawer"
                   className="btn drawer-button btn-sm flex gap-2">
                   export
@@ -113,12 +136,22 @@ export function DaisyUiDevtools({
         </div>
         <div className="flex gap-4 p-4">
           {/* export theme drawer */}
-          <ExportThemeDaisyUiDrawer searchParams={searchParams} />
+          {exportDrawerOpen && (
+            <ExportThemeDaisyUiDrawer
+              open={exportDrawerOpen}
+              setOpen={setExportDrawerOpen}
+              searchParams={searchParams}
+            />
+          )}
           {/* import theme drawer */}
-          <ImportThemeDaisyUiDrawer
-            searchParams={searchParams}
-            updateWholeTheme={updateWholeTheme}
-          />
+          {importDrawerOpen && (
+            <ImportThemeDaisyUiDrawer
+              open={importDrawerOpen}
+              setOpen={setImportDrawerOpen}
+              searchParams={searchParams}
+              updateWholeTheme={updateWholeTheme}
+            />
+          )}
         </div>
       </div>
     </>

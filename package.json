@@ -30,10 +30,13 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "build:lib": "tsc -b ./tsconfig.lib.json && vite build"
+    "build:lib": "tsc -b ./tsconfig.lib.json && vite build",
+    "dev:lib": "vite"
   },
   "dependencies": {
     "chroma-js": "^3.1.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "lucide-react": "^0.452.0",
     "react": "19.0.0-rc-e210d081-20240909",
     "react-color": "^2.19.3",

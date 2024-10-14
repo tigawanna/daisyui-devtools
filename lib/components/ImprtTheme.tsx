@@ -39,7 +39,7 @@ export function ImportTheme({ updateWholeTheme }: ImportThemeProps) {
   const [input, setInput] = useState("");
 
   return (
-    <div className="flex h-screen w-full flex-col justify-center gap-2 md:items-center">
+    <div className="flex h-screen max-w-[95%] w-full flex-col justify-center gap-2 md:items-center">
       <textarea
         placeholder={samplePlaceholder}
         className="textarea textarea-bordered h-[80%] min-h-[70vh] w-full p-6"
@@ -53,8 +53,7 @@ export function ImportTheme({ updateWholeTheme }: ImportThemeProps) {
             updateWholeTheme(imported_theme as any);
           }
         }}
-        className="btn btn-primary btn-sm btn-wide p-1"
-      >
+        className="btn btn-primary btn-sm btn-wide p-1">
         import
       </button>
     </div>

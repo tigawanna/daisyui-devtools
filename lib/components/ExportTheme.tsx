@@ -7,9 +7,12 @@ interface ExportThemeProps {
   theme: DaisyUIThemeSearchParmsTypes;
 }
 
-export function ExportTheme({  }: ExportThemeProps) {
+
+
+export function ExportTheme({}: ExportThemeProps) {
+
   const [wrapInBraces, setWrapInBraces] = useState(false);
-    const { searchParams:theme} = useDaisyUITheme(); 
+  const { searchParams: theme } = useDaisyUITheme();
   const colors_to_export = [
     `...require("daisyui/src/theming/themes")["${theme?.["--color-scheme"]?.value}"]`,
     theme?.["--color-scheme"]?.value
@@ -103,7 +106,7 @@ export function ExportTheme({  }: ExportThemeProps) {
   }, [copied]);
   const copied_styles = copied ? "animate-bounce text-success" : "";
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-3">
+    <div className="flex h-full w-full flex-col items-center  justify-center gap-3">
       <div className="flex items-center justify-center gap-3">
         <button
           onClick={() => {
@@ -165,9 +168,12 @@ export function ExportTheme({  }: ExportThemeProps) {
           Wrap in braces
         </label>
       </div>
-      <pre className="bg-base-300 p-5">
-        <code>{exportFormatedString}</code>
-      </pre>
+      <div className="bg-base-300 w-fit max-w-[95%] overflow-auto p-5">
+        {/* <p className="w-fit max-w-[99%] overflow-scroll">{exportFormatedString}</p> */}
+        <pre className="overflow-auto ">
+          <code >{exportFormatedString}</code>
+        </pre>
+      </div>
     </div>
   );
 }
