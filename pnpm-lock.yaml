@@ -19,28 +19,19 @@ importers:
         version: 2.1.1
       lucide-react:
         specifier: ^0.452.0
-        version: 0.452.0(react@19.0.0-rc-e210d081-20240909)
-      react:
-        specifier: 19.0.0-rc-e210d081-20240909
-        version: 19.0.0-rc-e210d081-20240909
+        version: 0.452.0(react@18.3.1)
       react-color:
         specifier: ^2.19.3
-        version: 2.19.3(react@19.0.0-rc-e210d081-20240909)
-      react-dom:
-        specifier: 19.0.0-rc-e210d081-20240909
-        version: 19.0.0-rc-e210d081-20240909(react@19.0.0-rc-e210d081-20240909)
+        version: 2.19.3(react@18.3.1)
       tailwind-merge:
         specifier: ^2.4.0
         version: 2.5.3
-      theme-change:
-        specifier: ^2.5.0
-        version: 2.5.0
       zod:
         specifier: ^3.23.8
         version: 3.23.8
       zustand:
         specifier: 5.0.0-rc.2
-        version: 5.0.0-rc.2(@types/react@18.3.11)(react@19.0.0-rc-e210d081-20240909)
+        version: 5.0.0-rc.2(@types/react@18.3.11)(react@18.3.1)
     devDependencies:
       '@eslint/js':
         specifier: ^9.11.1
@@ -52,13 +43,13 @@ importers:
         specifier: ^22.7.5
         version: 22.7.5
       '@types/react':
-        specifier: ^18.3.10
+        specifier: ^18.3.11
         version: 18.3.11
       '@types/react-color':
         specifier: ^3.0.12
         version: 3.0.12
       '@types/react-dom':
-        specifier: ^18.3.0
+        specifier: ^18.3.1
         version: 18.3.1
       '@vitejs/plugin-react':
         specifier: ^4.3.2
@@ -87,6 +78,12 @@ importers:
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
       rollup-plugin-analyzer:
         specifier: ^4.0.0
         version: 4.0.0
@@ -96,6 +93,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.13)
+      theme-change:
+        specifier: ^2.5.0
+        version: 2.5.0
       typescript:
         specifier: ^5.5.3
         version: 5.6.3
@@ -1497,10 +1497,10 @@ packages:
     peerDependencies:
       react: '*'
 
-  react-dom@19.0.0-rc-e210d081-20240909:
-    resolution: {integrity: sha512-h/ZtmV3WB7Q61dSUi1sl+U5A9vQt5+ZCaU0qaF8/eh1K91sRAUFAa0TkrU0JTEJ+uA8FQjt1k3ZJJUDPBepo9g==}
+  react-dom@18.3.1:
+    resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
     peerDependencies:
-      react: 19.0.0-rc-e210d081-20240909
+      react: ^18.3.1
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -1509,8 +1509,8 @@ packages:
     resolution: {integrity: sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==}
     engines: {node: '>=0.10.0'}
 
-  react@19.0.0-rc-e210d081-20240909:
-    resolution: {integrity: sha512-2TetWmjnJdOc9lQXFhKE9gKCzQcuOYbdcHqT3Ar3965gCDtKzjDPSUjQUbOk75NBKN9v4VqbeM/vOpP+0n5xPw==}
+  react@18.3.1:
+    resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
     engines: {node: '>=0.10.0'}
 
   reactcss@1.2.3:
@@ -1553,8 +1553,8 @@ packages:
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
 
-  scheduler@0.25.0-rc-e210d081-20240909:
-    resolution: {integrity: sha512-sLyjQ8rjo6xP2SmZj5frkjHQ8JrzK+B2kba3jHK/UCbNYca/fqjgBjf1DqSnjhNZLlCS0okviMLJLe9NH4E8FQ==}
+  scheduler@0.23.2:
+    resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -2136,9 +2136,9 @@ snapshots:
 
   '@humanwhocodes/retry@0.3.1': {}
 
-  '@icons/material@0.2.4(react@19.0.0-rc-e210d081-20240909)':
+  '@icons/material@0.2.4(react@18.3.1)':
     dependencies:
-      react: 19.0.0-rc-e210d081-20240909
+      react: 18.3.1
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -3024,9 +3024,9 @@ snapshots:
     dependencies:
       yallist: 4.0.0
 
-  lucide-react@0.452.0(react@19.0.0-rc-e210d081-20240909):
+  lucide-react@0.452.0(react@18.3.1):
     dependencies:
-      react: 19.0.0-rc-e210d081-20240909
+      react: 18.3.1
 
   magic-string@0.30.12:
     dependencies:
@@ -3189,32 +3189,35 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  react-color@2.19.3(react@19.0.0-rc-e210d081-20240909):
+  react-color@2.19.3(react@18.3.1):
     dependencies:
-      '@icons/material': 0.2.4(react@19.0.0-rc-e210d081-20240909)
+      '@icons/material': 0.2.4(react@18.3.1)
       lodash: 4.17.21
       lodash-es: 4.17.21
       material-colors: 1.2.6
       prop-types: 15.8.1
-      react: 19.0.0-rc-e210d081-20240909
-      reactcss: 1.2.3(react@19.0.0-rc-e210d081-20240909)
+      react: 18.3.1
+      reactcss: 1.2.3(react@18.3.1)
       tinycolor2: 1.6.0
 
-  react-dom@19.0.0-rc-e210d081-20240909(react@19.0.0-rc-e210d081-20240909):
+  react-dom@18.3.1(react@18.3.1):
     dependencies:
-      react: 19.0.0-rc-e210d081-20240909
-      scheduler: 0.25.0-rc-e210d081-20240909
+      loose-envify: 1.4.0
+      react: 18.3.1
+      scheduler: 0.23.2
 
   react-is@16.13.1: {}
 
   react-refresh@0.14.2: {}
 
-  react@19.0.0-rc-e210d081-20240909: {}
+  react@18.3.1:
+    dependencies:
+      loose-envify: 1.4.0
 
-  reactcss@1.2.3(react@19.0.0-rc-e210d081-20240909):
+  reactcss@1.2.3(react@18.3.1):
     dependencies:
       lodash: 4.17.21
-      react: 19.0.0-rc-e210d081-20240909
+      react: 18.3.1
 
   read-cache@1.0.0:
     dependencies:
@@ -3264,7 +3267,9 @@ snapshots:
     dependencies:
       queue-microtask: 1.2.3
 
-  scheduler@0.25.0-rc-e210d081-20240909: {}
+  scheduler@0.23.2:
+    dependencies:
+      loose-envify: 1.4.0
 
   semver@6.3.1: {}
 
@@ -3512,7 +3517,7 @@ snapshots:
 
   zod@3.23.8: {}
 
-  zustand@5.0.0-rc.2(@types/react@18.3.11)(react@19.0.0-rc-e210d081-20240909):
+  zustand@5.0.0-rc.2(@types/react@18.3.11)(react@18.3.1):
     optionalDependencies:
       '@types/react': 18.3.11
-      react: 19.0.0-rc-e210d081-20240909
+      react: 18.3.1
