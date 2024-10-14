@@ -23,7 +23,7 @@ const _plugins = [
   analyze({
     // highlight the modules with size > 40kb
     filter(moduleObject) {
-      return moduleObject.size > 40000;
+      return moduleObject.size > 10000;
     },
   }),
 ];
