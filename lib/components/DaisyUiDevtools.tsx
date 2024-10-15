@@ -7,16 +7,24 @@ import { useState } from "react";
 import { Save, X } from "lucide-react";
 import { cva} from "class-variance-authority";
 import {cn} from "./utils/tailwind-utils"
-import { exportThemeAsString } from "./utils/io";
+import { DaisyUIThemeSearchParmsTypes } from "./utils/schema";
+
 interface DaisyUiDevtoolsProps {
   position?: "start" | "end";
   drawerID?: string;
   drawerClassname?: string;
-  togglePosition?: "default"|"top-left" | "top-right" | "bottom-left" | "bottom-right" | "top" | "bottom";
+  togglePosition?:
+    | "default"
+    | "top-left"
+    | "top-right"
+    | "bottom-left"
+    | "bottom-right"
+    | "top"
+    | "bottom";
   toggleClassname?: string;
   iconClassname?: string;
   customThemeName?: string;
-  onCommitChanges?: (changes:string) => void;
+  onCommitChanges?: ( themeObject: DaisyUIThemeSearchParmsTypes) => void;
 }
 
 export function DaisyUiDevtools({
@@ -131,9 +139,7 @@ export function DaisyUiDevtools({
                     className="btn btn-wide btn-sm btn-secondary"
                     onClick={() => {
                       // console.log("commit", searchParams);
-                      onCommitChanges(
-                        `{ \n "custom_theme": {\n ${exportThemeAsString(searchParams)} \n}\n}`
-                      );
+                      onCommitChanges(searchParams);
                     }}>
                     commit <Save />
                   </button>
