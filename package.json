@@ -1,7 +1,7 @@
 {
   "name": "daisyui-devtools",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "exports": {
     ".": {
@@ -27,7 +27,7 @@
   "homepage": "https://github.com/tigawanna/daisyui-devtools",
   "scripts": {
     "dev": "vite",
-    "test":"tsc -b ./tsconfig.lib.json",
+    "test": "tsc -b ./tsconfig.lib.json",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
