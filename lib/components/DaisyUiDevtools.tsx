@@ -34,8 +34,8 @@ export function DaisyUiDevtools({
       variants: {
         variant: {
           default: "right-[48%] bottom-[5%]",
-          top: "right-[5%] top-[10%]",
-          bottom: "right-[5%] bottom-[10%]",
+          top: "right-[50%] top-[5%]",
+          bottom: "right-[50%] bottom-[5%]",
           "top-left": "left-[5%] top-[10%]",
           "top-right": "right-[5%] top-[10%]",
           "bottom-left": "left-[5%] bottom-[10%]",
