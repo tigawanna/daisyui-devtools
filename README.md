@@ -13,16 +13,17 @@ a react component that allows you to adjust your daisyui theme directly in your 
     />
 ```
 Devtools while clodes
-![drawer closed](/public/drawer-closed.png)
+![drawer closed](https://raw.githubusercontent.com/tigawanna/daisyui-devtools/75ca0e60e8b864e7481fc1de82fbda8802b5ac4e/public/drawer-closed.png)
 
 Devtools while open 
-![drawer open](/public/drawer-open.png)
+![drawer open](https://raw.githubusercontent.com/tigawanna/daisyui-devtools/main/public/drawer-open.png)
 
 Devtools while openwith open modal
-![drawer open](/public/modal-open.png)
+![drawer open](https://raw.githubusercontent.com/tigawanna/daisyui-devtools/main/public/modal-open.png)
 
 Devtools import theme
-![drawer open](/public/import-theme.png)
+![drawer open](https://raw.githubusercontent.com/tigawanna/daisyui-devtools/main/public/import-theme.png)
 
 Devtools export theme
-![drawer open](/public/export-theme.png)
+![drawer open](https://raw.githubusercontent.com/tigawanna/daisyui-devtools/main/public/export-theme.png)
+
