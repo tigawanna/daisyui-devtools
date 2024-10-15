@@ -47,8 +47,6 @@
     "react-dom": ">=16"
   },
   "devDependencies": {
-    "tailwind-merge": "^2.4.0",
-    "theme-change": "^2.5.0",
     "@eslint/js": "^9.11.1",
     "@types/chroma-js": "^2.4.4",
     "@types/node": "^22.7.5",
@@ -62,18 +60,24 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.12",
     "globals": "^15.9.0",
+    "np": "^10.0.7",
     "postcss": "^8.4.39",
     "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "rollup-plugin-analyzer": "^4.0.0",
+    "tailwind-merge": "^2.4.0",
     "tailwindcss": "^3.4.4",
     "tailwindcss-animate": "^1.0.7",
+    "theme-change": "^2.5.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.7.0",
     "vite": "^5.4.8",
     "vite-plugin-dts": "^4.2.4",
     "vite-plugin-lib-inject-css": "^2.1.1",
     "vite-tsconfig-paths": "^5.0.1"
+  },
+  "np": {
+    "contents": "dist"
   }
 }
