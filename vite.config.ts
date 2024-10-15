@@ -5,6 +5,7 @@ import analyze from "rollup-plugin-analyzer";
 import path from "path";
 import dts from "vite-plugin-dts";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
+
 // import { splashScreen } from "vite-plugin-splash-screen";
 // const ReactCompilerConfig = {
 //   /* ... */
@@ -29,8 +30,13 @@ const _plugins = [
 ];
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+
+  },
+
   build: {
     sourcemap: true,
+
     lib: {
       entry: path.resolve(__dirname, "lib/main.ts"),
       formats: ["es"],

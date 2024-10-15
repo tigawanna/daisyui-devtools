@@ -13,7 +13,9 @@ return (
           d="M4 6V4a4 4 0 118 0v2h2v10H2V6h2zm2-2a2 2 0 114 0v2H6V4zm1 9V9h2v4H7z"
           clipRule="evenodd"></path>
       </svg>
+
     </div>
+
     <DaisyUiDevtools
       drawerClassname="w-fit" // optional: styles for the drawer
       drawerID="daisyui-devtools-drawer" // optional: used by the underlying drawer , chage it if it conflicts
@@ -21,6 +23,9 @@ return (
       position="start" //optional:start or end : whre the theme picker drawer will open from
       toggleClassname="drawer-button" //optional: styles for the drawer toggle
       togglePosition="bottom" //optional: position of the drawer toggle button
+      onCommitChanges={(vals) => {
+          console.log("vals === ", vals)
+      }}  
     />
   </div>
 );

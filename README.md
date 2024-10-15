@@ -35,6 +35,11 @@ or customize it with options
       position="start" //optional:start or end : whre the theme picker drawer will open from
       toggleClassname="drawer-button" //optional: styles for the drawer toggle
       togglePosition="bottom-left" //optional: position of the drawer toggle button
+      customThemeName="custom_theme"
+        onCommitChanges={(new_theme_string) => {
+            console.log(" new theme string === ", new_theme_string)
+            // logic to update you tailwind.config.daisyui
+        }}
     />
 ```
 

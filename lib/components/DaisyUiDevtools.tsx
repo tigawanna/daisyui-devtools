@@ -4,9 +4,10 @@ import { useDaisyUITheme } from "./utils/use-search-params-theme";
 import { ExportThemeDaisyUiDrawer, ImportThemeDaisyUiDrawer } from "./ThemeDrawers";
 import { getDaisyUiInlineCSSVariables } from "./utils/daisyui-css-variables-helpers";
 import { useState } from "react";
-import { X } from "lucide-react";
+import { Save, X } from "lucide-react";
 import { cva} from "class-variance-authority";
 import {cn} from "./utils/tailwind-utils"
+import { exportThemeAsString } from "./utils/io";
 interface DaisyUiDevtoolsProps {
   position?: "start" | "end";
   drawerID?: string;
@@ -14,6 +15,8 @@ interface DaisyUiDevtoolsProps {
   togglePosition?: "default"|"top-left" | "top-right" | "bottom-left" | "bottom-right" | "top" | "bottom";
   toggleClassname?: string;
   iconClassname?: string;
+  customThemeName?: string;
+  onCommitChanges?: (changes:string) => void;
 }
 
 export function DaisyUiDevtools({
@@ -23,6 +26,8 @@ export function DaisyUiDevtools({
   toggleClassname = "",
   drawerClassname = "",
   iconClassname = "",
+  customThemeName = "custom_theme",
+  onCommitChanges
 }: DaisyUiDevtoolsProps) {
   const { searchParams, updateLockedTheme, updateTheme, updateWholeTheme } = useDaisyUITheme();
   const [exportDrawerOpen, setExportDrawerOpen] = useState(false);
@@ -94,7 +99,7 @@ export function DaisyUiDevtools({
             </label>
             {/* Sidebar content here */}
             <div className="flex flex-col gap-4 p-4">
-              <div className="flex items-center justify-center gap-2">
+              <div className="flex flex-wrap items-center justify-center gap-2">
                 <label
                   onClick={() => setImportDrawerOpen((prev) => !prev)}
                   htmlFor="import-theme-drawer"
@@ -125,6 +130,18 @@ export function DaisyUiDevtools({
                       d="M0 1016.081l409.186 409.073 79.85-79.736-272.867-272.979h1136.415V959.611H216.169l272.866-272.866-79.85-79.85L0 1016.082zM1465.592 305.32l315.445 315.445h-315.445V305.32zm402.184 242.372l-329.224-329.11C1507.042 187.07 1463.334 169 1418.835 169h-743.83v677.647h112.94V281.941h564.706v451.765h451.765v903.53H787.946V1185.47H675.003v564.705h1242.353V667.522c0-44.498-18.07-88.207-49.581-119.83z"></path>
                   </svg>
                 </label>
+                {onCommitChanges && (
+                  <button
+                    className="btn btn-wide btn-sm btn-secondary"
+                    onClick={() => {
+                      // console.log("commit", searchParams);
+                      onCommitChanges(
+                        `{ \n "custom_theme": {\n ${exportThemeAsString(searchParams)} \n}\n}`
+                      );
+                    }}>
+                    commit <Save />
+                  </button>
+                )}
               </div>
               <DaisyUIThemeEditor
                 theme={searchParams}
@@ -138,6 +155,7 @@ export function DaisyUiDevtools({
           {/* export theme drawer */}
           {exportDrawerOpen && (
             <ExportThemeDaisyUiDrawer
+              customThemeName={customThemeName}
               open={exportDrawerOpen}
               setOpen={setExportDrawerOpen}
               searchParams={searchParams}
@@ -157,3 +175,4 @@ export function DaisyUiDevtools({
     </>
   );
 }
+

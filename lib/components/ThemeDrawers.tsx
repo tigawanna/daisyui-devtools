@@ -5,6 +5,7 @@ import { ImportTheme } from "./ImprtTheme";
 import { DaisyUIThemeSearchParmsTypes } from "./utils/schema";
 
 interface ExportThemeDaisyUiDrawerProps {
+  customThemeName: string;
   searchParams: DaisyUIThemeSearchParmsTypes;
   open: boolean;
   setOpen: (open: boolean) => void;
@@ -12,6 +13,7 @@ interface ExportThemeDaisyUiDrawerProps {
 
 export function ExportThemeDaisyUiDrawer({
   searchParams,
+  customThemeName,
   open,setOpen
 }: ExportThemeDaisyUiDrawerProps) {
   return (
@@ -34,7 +36,7 @@ export function ExportThemeDaisyUiDrawer({
             <X className="size-8" />
           </label>
           {/* Sidebar content here */}
-          <ExportTheme theme={searchParams} />
+          <ExportTheme theme={searchParams} customThemeName={customThemeName} />
         </ul>
       </div>
     </div>
