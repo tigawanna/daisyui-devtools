@@ -27,6 +27,7 @@
   "homepage": "https://github.com/tigawanna/daisyui-devtools",
   "scripts": {
     "dev": "vite",
+    "test":"tsc -b ./tsconfig.lib.json",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
