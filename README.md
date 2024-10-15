@@ -2,6 +2,31 @@
 
 a react component that allows you to adjust your daisyui theme directly in your react project
 
+```sh
+npm install -D daisyui-devtools
+```
+and use it like such
+```tsx
+    <DaisyUiDevtools/>
+```
+remember to lazily load the component in dev mode to avooid sending it to production
+
+```tsx
+const DaisyUiDevtools =
+  process.env.NODE_ENV === 'production'
+    ? () => null // Render nothing in production
+    : React.lazy(() =>
+        // Lazy load in development
+        import('daisyui-devtools').then((res) => ({
+          default: res.DaisyUiDevtools,
+        })),
+      )
+
+```
+
+
+or customize it with options
+
 ```tsx
     <DaisyUiDevtools
       drawerClassname="w-fit" // optional: styles for the drawer
@@ -12,6 +37,9 @@ a react component that allows you to adjust your daisyui theme directly in your 
       togglePosition="bottom-left" //optional: position of the drawer toggle button
     />
 ```
+
+
+
 Devtools while clodes
 ![drawer closed](https://raw.githubusercontent.com/tigawanna/daisyui-devtools/75ca0e60e8b864e7481fc1de82fbda8802b5ac4e/public/drawer-closed.png)
 
