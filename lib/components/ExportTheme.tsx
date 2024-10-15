@@ -15,7 +15,7 @@ export function ExportTheme({customThemeName}: ExportThemeProps) {
 
   const [wrapInBraces, setWrapInBraces] = useState(false);
   const { searchParams: theme } = useDaisyUITheme();
-  const colors_to_export = exportThemeAsString(theme);
+  const colors_to_export = exportThemeAsString(theme,true);
 
   // const exportFormatedTring = `{ \n 'custom_theme': {\n ${colors_to_export.join("',\n")} \n}\n}`;
   // const exportFormatedTring = ` ${colors_to_export.join(",\n")}`;

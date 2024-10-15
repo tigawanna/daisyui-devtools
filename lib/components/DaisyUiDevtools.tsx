@@ -60,11 +60,7 @@ export function DaisyUiDevtools({
   return (
     <>
       <label
-        htmlFor="daisyui-devtools-drawer"
-        // className={twMerge(
-        //   "btn drawer-button fixed right-[5%] top-[10%] z-50 flex gap-2 rounded-full text-primary",
-        //   toggleClassname
-        // )}
+        htmlFor={drawerID}
         className={cn(togglePositionStylesVariants({ variant: togglePosition }), toggleClassname)}>
         <svg
           className={twMerge("h-8 w-8 fill-primary text-primary hover:fill-accent", iconClassname)}
