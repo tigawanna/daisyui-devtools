@@ -1,8 +1,10 @@
 import { oklchToHexString } from "./color-converters";
 import { DaisyUIThemeSearchParmsTypes } from "./schema";
-export function exportThemeAsString(theme: DaisyUIThemeSearchParmsTypes,spread=false) {
+export function exportThemeArray(theme: DaisyUIThemeSearchParmsTypes, spread = false) {
   const colors_to_export = [
-    spread?`...require("daisyui/src/theming/themes")["${theme?.["--color-scheme"]?.value}"]`:undefined,
+    spread
+      ? `...require("daisyui/src/theming/themes")["${theme?.["--color-scheme"]?.value}"]`
+      : undefined,
     theme?.["--color-scheme"]?.value
       ? `"color-scheme":"${theme?.["--color-scheme"]?.value}"`
       : undefined,
@@ -75,5 +77,6 @@ export function exportThemeAsString(theme: DaisyUIThemeSearchParmsTypes,spread=f
       ? `"--tab-radius":"${theme?.["--tab-radius"]?.value}"`
       : undefined,
   ].filter(Boolean);
-  return colors_to_export.join(",\n");
+  return colors_to_export;
 }
+

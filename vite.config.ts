@@ -4,7 +4,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import analyze from "rollup-plugin-analyzer";
 import path from "path";
 import dts from "vite-plugin-dts";
-import { libInjectCss } from "vite-plugin-lib-inject-css";
+import fs from "vite-plugin-fs";
 
 // import { splashScreen } from "vite-plugin-splash-screen";
 // const ReactCompilerConfig = {
@@ -18,6 +18,7 @@ const _plugins = [
     // },
   }),
   ,
+  fs(),
   tsconfigPaths(),
   dts({ tsconfigPath: path.resolve(__dirname, "tsconfig.lib.json") }),
   // libInjectCss(),

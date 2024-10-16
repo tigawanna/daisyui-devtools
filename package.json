@@ -39,6 +39,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.452.0",
+    "magicast": "^0.3.5",
     "react-color": "^2.19.3",
     "zod": "^3.23.8",
     "zustand": "5.0.0-rc.2"

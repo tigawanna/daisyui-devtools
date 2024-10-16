@@ -9,6 +9,7 @@ import { cva} from "class-variance-authority";
 import {cn} from "./utils/tailwind-utils"
 import { DaisyUIThemeSearchParmsTypes } from "./utils/schema";
 
+
 interface DaisyUiDevtoolsProps {
   position?: "start" | "end";
   drawerID?: string;
@@ -24,7 +25,7 @@ interface DaisyUiDevtoolsProps {
   toggleClassname?: string;
   iconClassname?: string;
   customThemeName?: string;
-  onCommitChanges?: ( themeObject: DaisyUIThemeSearchParmsTypes) => void;
+  onCommitChanges?: (themeObject: DaisyUIThemeSearchParmsTypes) => void;
 }
 
 export function DaisyUiDevtools({

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { oklchToHexString } from "./utils/color-converters";
 import { DaisyUIThemeSearchParmsTypes } from "./utils/schema";
 import { useDaisyUITheme } from "./utils/use-search-params-theme";
-import { exportThemeAsString } from "./utils/io";
+import { exportThemeArray } from "./utils/io";
 
 interface ExportThemeProps {
   theme: DaisyUIThemeSearchParmsTypes;
@@ -15,7 +15,7 @@ export function ExportTheme({customThemeName}: ExportThemeProps) {
 
   const [wrapInBraces, setWrapInBraces] = useState(false);
   const { searchParams: theme } = useDaisyUITheme();
-  const colors_to_export = exportThemeAsString(theme,true);
+  const colors_to_export = exportThemeArray(theme, true).join(",\n");
 
   // const exportFormatedTring = `{ \n 'custom_theme': {\n ${colors_to_export.join("',\n")} \n}\n}`;
   // const exportFormatedTring = ` ${colors_to_export.join(",\n")}`;
