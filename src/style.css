@@ -1,0 +1,9 @@
+/* src/global.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.react-colorful {
+  width: auto;
+}
+

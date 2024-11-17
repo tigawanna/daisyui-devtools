@@ -1,34 +1,12 @@
 /* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
-
+// src/components
 export default {
-  darkMode: ["class"],
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}", "./lib/**/*.{js,ts,jsx,tsx}"],  
-  plugins: [require("daisyui"), require("tailwindcss-animate")],
+  darkMode: ["class", 'html[class~="dark"]'],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  // prefix: "daisyui-devtools-",
+  plugins: [require('daisyui'), require('@tailwindcss/container-queries'),],
   daisyui: {
-    themes:[
-      "light",
-      "dark",
-      "cupcake",
-      "bumblebee",
-      "emerald",
-      "corporate",
-      "synthwave",
-      "retro",
-      "cyberpunk",
-      "valentine",
-      "halloween",
-      "garden",
-      "forest",
-      "aqua",
-      "lofi",
-      "pastel",
-      "fantasy",
-      "wireframe",
-      "black",
-      "luxury",
-      "dracula",
-    ]
+    themes: false,
   }
 };
-
