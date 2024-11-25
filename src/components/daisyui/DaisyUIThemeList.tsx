@@ -18,15 +18,17 @@ import { oklchToHSL } from '../../utils/color-converters.js';
 import { useDaisyUIThemeStore } from './utils/store.js';
 import { exportThemeArray } from './import-export/utils.js';
 import { useCallback } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 interface DaisyUIThemeListProps {
+  listContainerClassName?: string;
   saveTheme?: (
     themeObject: DaisyUIThemeObjectType,
     themeString: string,
   ) => void;
 }
 
-export function DaisyUIThemeList({ saveTheme }: DaisyUIThemeListProps) {
+export function DaisyUIThemeList({ saveTheme,listContainerClassName }: DaisyUIThemeListProps) {
   const { theme } = useDaisyUIThemeStore();
   const saveThemCallback = useCallback(
     (currentTheme: DaisyUIThemeObjectType) => {
@@ -63,7 +65,7 @@ export function DaisyUIThemeList({ saveTheme }: DaisyUIThemeListProps) {
         </button>
       </div>
       <DaisyUIImportExportDrawars />
-      <div className="w-full h-full grid-cols-1  p-2 grid @xs:grid-cols-2 @md:grid-cols-3  gap-2  items-center justify-center ">
+      <div className={twMerge("w-full h-full grid-cols-1  p-2 grid @xs:grid-cols-2 @md:grid-cols-3 @lg:grid-cols-4  gap-2  items-center justify-center ",listContainerClassName)}>
         {daisyui_theme_names.map((name) => {
           const currentTheme = theme[name];
           if (currentTheme && currentTheme?.type === 'color') {

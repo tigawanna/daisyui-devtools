@@ -20,6 +20,14 @@ function App() {
   );
 }
 ```
+
+and import the css
+```css
+/* import this before importing your app's css */
+import "daisyui-devtools/style.css"
+import "./styles.css"
+
+```
 colors list with color picker modal
 
 ![color-picker]([image.png](https://github.com/tigawanna/daisyui-devtools/blob/main/assets/color-picker.png))
