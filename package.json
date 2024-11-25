@@ -1,7 +1,7 @@
 {
   "name": "daisyui-devtools",
   "description": "a react component that allows you to adjust your daisyui theme directly in your react project",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "files": [
     "dist"

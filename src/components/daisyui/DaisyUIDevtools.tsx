@@ -9,14 +9,17 @@ import { twMerge } from 'tailwind-merge';
 import { DaisyUIThemeList } from './DaisyUIThemeList.js';
 import { useDaisyUIThemeStore, useDrawersUIImportExportStore } from './utils/store.js';
 import type { DaisyUIThemeObjectType } from './utils/daisyui-theme-types.js';
+import { DaisyUiIcon } from './DaisyUiIcon.js';
 
 interface DaisyUIDevtoolsProps {
   drawerZIndex?: `z-${number}`;
   drawerClassName?: string;
+  drawaerTriggerClassName?: string;
   saveTheme?: (themeObject: DaisyUIThemeObjectType,themeString: string) => void;
+
 }
 
-export function DaisyUIDevtools({drawerClassName,drawerZIndex,saveTheme}: DaisyUIDevtoolsProps) {
+export function DaisyUIDevtools({drawerClassName,drawerZIndex,saveTheme,drawaerTriggerClassName}: DaisyUIDevtoolsProps) {
   const { setAllThemes, theme } = useDaisyUIThemeStore();
   const closeAllDrawers = useDrawersUIImportExportStore((state)=>state.closeAll);
   mutationObserver()  
@@ -31,19 +34,22 @@ export function DaisyUIDevtools({drawerClassName,drawerZIndex,saveTheme}: DaisyU
         id="daisyui-theme-editor-drawer"
         type="checkbox"
         className="drawer-toggle"
-        onChange={(e)=>{
+        onChange={(e) => {
           if (!e.target.checked) {
             closeAllDrawers();
           }
         }}
       />
-      <div className="drawer-content">
+      <div className="drawer-content ">
         {/* Page content here */}
         <label
           htmlFor="daisyui-theme-editor-drawer"
-          className="btn btn-sm btn-primary drawer-button"
+          className={twMerge(
+            'drawer-button p-2 fixed top-20 left-5',
+            drawaerTriggerClassName,
+          )}
         >
-          Edit
+          <DaisyUiIcon />
         </label>
       </div>
       <div className={twMerge('drawer-side z-40', drawerZIndex)}>
@@ -60,7 +66,7 @@ export function DaisyUIDevtools({drawerClassName,drawerZIndex,saveTheme}: DaisyU
           )}
         >
           {/* <DaisyUIImportExport customThemeName={customThemeName}/> */}
-          <DaisyUIThemeList />
+          <DaisyUIThemeList saveTheme={saveTheme} />
         </ul>
       </div>
     </div>

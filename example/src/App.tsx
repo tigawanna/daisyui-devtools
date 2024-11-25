@@ -10,11 +10,19 @@ export function App() {
     themeChange(false);
   }, []);
   return (
-    <div className="flex flex-col min-h-screen w-full gap-2">
+    <div className="flex min-h-screen w-full flex-col gap-2">
       <MainNavbar />
-      <DaisyUIDevtools />
+      <DaisyUIDevtools
+        drawerClassName="p-1" // optional
+        drawaerTriggerClassName="fixed top-20 left-5" //optional : default is fixed top-5 left-5
+        drawerZIndex={"z-20"} // optional : z value for drawer
+        saveTheme={(themeObj, themeStr) => {
+          console.log(themeObj, themeStr);
+          // call fs.writeFile or equivalent for your framework
+        }} //optional
+      />
       {/* <ViewHSLColors/> */}
-      <div className="flex flex-col items-center justify-center gap-5 bg-base-200 rounded-lg p-[2%] m-[5%]">
+      <div className="m-[5%] flex flex-col items-center justify-center gap-5 rounded-lg bg-base-200 p-[2%]">
         <div className="flex flex-wrap justify-center gap-5">
           <div className="flex h-20 w-fit min-w-[20%] items-center justify-center rounded-lg bg-primary p-2 text-primary-content">
             primary
