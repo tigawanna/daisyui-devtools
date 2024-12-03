@@ -1,6 +1,5 @@
 import { RotateCcw } from 'lucide-react';
 import { unsetAllCssVariables } from './utils/load-themes.js';
-
 import {
   daisyui_theme_names,
   type DaisyUIThemeColorNames,

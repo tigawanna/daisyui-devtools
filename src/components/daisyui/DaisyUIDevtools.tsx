@@ -56,7 +56,7 @@ export function DaisyUIDevtools({
         <label
           htmlFor="daisyui-theme-editor-drawer"
           className={twMerge(
-            'drawer-button p-2 fixed top-20 left-5',
+            'drawer-button p-2 fixed bottom-[10%] left-[50%]',
             drawaerTriggerClassName,
           )}
         >
@@ -72,7 +72,7 @@ export function DaisyUIDevtools({
 
         <ul
           className={twMerge(
-            'menu  text-base-content @container min-h-full sm:w-[80%] md:w-[50%] lg:w-[40%] bg-base-200 p-4 ',
+            'menu text-base-content @container min-h-full sm:w-[80%] md:w-[50%] lg:w-[40%] bg-base-200 p-4 ',
             drawerClassName,
           )}
         >

@@ -44,7 +44,7 @@ props
 ```tsx
       <DaisyUIDevtools
         drawerClassName="p-1" // optional
-        drawaerTriggerClassName="fixed top-20 left-5" //optional : default is fixed top-5 left-5
+        drawaerTriggerClassName="bottom-[10%] left-[50%]" //optional : default is fixed top-5 left-5
         drawerZIndex={"z-20"} // optional : z value for drawer
         saveTheme={(themeObj, themeStr) => {
           console.log(themeObj, themeStr);
@@ -53,3 +53,35 @@ props
       />
 ```
 
+you caan wrap it ina  lazy load to keep it out of your final bundle
+
+```tsx
+import React from "react";
+
+export const DaisyUIDevtools =
+  process.env.NODE_ENV === "production"
+    ? () => null // Render nothing in production
+    : React.lazy(() =>
+        // Lazy load in development
+        import("daisyui-devtools").then((res) => ({
+          default: res.DaisyUIDevtools,
+          // For Embedded Mode
+          // default: res.DaisyUIThemeList
+        })),
+      );
+```
+
+or even embed it in your app
+```tsx
+import React from "react";
+import { DaisyUIThemeList } from "daisyui-devtools";
+
+function ThemeRoute() {
+  return (
+    <div>
+  // a page or section in your settigs page
+      <DaisyUIThemeList />
+    </div>
+  );
+}
+```
