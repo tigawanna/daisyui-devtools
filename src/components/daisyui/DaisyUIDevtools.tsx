@@ -4,10 +4,12 @@ import {
   mutationObserver,
 } from './utils/load-themes.js';
 
-
 import { twMerge } from 'tailwind-merge';
 import { DaisyUIThemeList } from './DaisyUIThemeList.js';
-import { useDaisyUIThemeStore, useDrawersUIImportExportStore } from './utils/store.js';
+import {
+  useDaisyUIThemeStore,
+  useDrawersUIImportExportStore,
+} from './utils/store.js';
 import type { DaisyUIThemeObjectType } from './utils/daisyui-theme-types.js';
 import { DaisyUiIcon } from './DaisyUiIcon.js';
 
@@ -15,14 +17,23 @@ interface DaisyUIDevtoolsProps {
   drawerZIndex?: `z-${number}`;
   drawerClassName?: string;
   drawaerTriggerClassName?: string;
-  saveTheme?: (themeObject: DaisyUIThemeObjectType,themeString: string) => void;
-
+  saveTheme?: (
+    themeObject: DaisyUIThemeObjectType,
+    themeString: string,
+  ) => void;
 }
 
-export function DaisyUIDevtools({drawerClassName,drawerZIndex,saveTheme,drawaerTriggerClassName}: DaisyUIDevtoolsProps) {
+export function DaisyUIDevtools({
+  drawerClassName,
+  drawerZIndex,
+  saveTheme,
+  drawaerTriggerClassName,
+}: DaisyUIDevtoolsProps) {
   const { setAllThemes, theme } = useDaisyUIThemeStore();
-  const closeAllDrawers = useDrawersUIImportExportStore((state)=>state.closeAll);
-  mutationObserver()  
+  const closeAllDrawers = useDrawersUIImportExportStore(
+    (state) => state.closeAll,
+  );
+  mutationObserver();
   useEffect(() => {
     const themes = loadDaisyUIThemeFromState(theme);
     setAllThemes(themes);
